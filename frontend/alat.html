@@ -27,7 +27,7 @@
     <div class="mb-4 flex items-center justify-between mt-10">
       <div>
         <h2 class="text-xl font-bold">Kelola ALat</h2>
-        <p class="mt-1 text-xs text-gray-400">
+        <p class="mt-1 text-md text-gray-400">
           Daftar Alat
         </p>
       </div>
@@ -37,18 +37,27 @@
       </button>
     </div>
 
-    <div class="mb-6 overflow-hidden rounded-lg bg-white shadow-sm">
-      <div class="hidden bg-gray-300 px-5 py-3 text-xs font-bold text-gray-500 md:grid md:grid-cols-7">
-        <div>Id Alat</div>
-        <div>Id kategori</div>
-        <div>Nama Alat</div>
-        <div>Kondisi</div>
-        <div>Stok</div>
-        <div>Loaksi</div>
-        <div>Aksi</div>
-      </div>
+    <div class="mb-10 overflow-x-auto rounded-lg bg-white shadow-sm">
+    <table class="table-alat w-full border-collapse bg-white shadow-sm">
+      <thead class="bg-gray-300 text-xs uppercase font-bold text-gray-700">
+        <tr>
+          <th class="border border-gray-400 px-4 py-3">Id Alat</th>
+          <th class="border border-gray-400 px-4 py-3">Id kategori</th>
+          <th class="border border-gray-400 px-4 py-3">Nama Alat</th>
+          <th class="border border-gray-400 px-4 py-3">Kondisi</th>
+          <th class="border border-gray-400 px-4 py-3">Stok</th>
+          <th class="border border-gray-400 px-4 py-3">Loaksi</th>
+          <th class="border border-gray-400 px-4 py-3 text-center">Aksi</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+      </tbody>
+    </table>
     </div>
   </section>
   
+  <script src="alat.js"></script>
 </body>
 </html>
