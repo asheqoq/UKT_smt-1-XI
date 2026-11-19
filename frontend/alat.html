@@ -10,7 +10,7 @@
 <body class="bg-gray-200 text-gray-800 font-sans antialiased">
     <header class="bg-gray-50 shadow-sm sticky top-0 z-50">
     <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-    <h1 class="text-xl font-bold">Sistem Peminjaman ALat</h1>
+    <h1 class="text-2xl font-bold">Sistem Peminjaman Alat</h1>
     <nav>
         <ul>
             <li class="flex gap-6">
@@ -23,5 +23,33 @@
     </div>
     </header>
 
+    <section id="produk" class="mb-8 px-4">
+    <div class="mb-4 flex items-center justify-between mt-10">
+      <div>
+        <h2 class="text-xl font-bold">Kelola ALat</h2>
+        <p class="mt-1 text-xs text-gray-400">
+          Daftar Alat
+        </p>
+      </div>
+      <button type="button"
+        class="rounded-lg bg-blue-500 px-4 py-2 font-bold text-6 text-white transition duration-300 hover:bg-blue-600">
+        + Tambah Alat
+      </button>
+    </div>
+
+    <div class="mb-6 overflow-hidden rounded-lg bg-white shadow-sm">
+      <div class="hidden bg-gray-300 px-5 py-3 text-xs font-bold text-gray-500 md:grid md:grid-cols-7">
+        <div>Id Alat</div>
+        <div>Id kategori</div>
+        <div>Nama Alat</div>
+        <div>Kondisi</div>
+        <div>Stok</div>
+        <div>Loaksi</div>
+        <div>Aksi</div>
+      </div>
+
+      <div id="produkterbaru"></div>
+    </div>
+  </section>
 </body>
 </html>
