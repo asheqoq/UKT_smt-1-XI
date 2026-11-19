@@ -37,19 +37,30 @@
       </button>
     </div>
 
-    <div class="mb-6 overflow-hidden rounded-lg bg-white shadow-sm">
-      <div class="hidden bg-gray-300 px-5 py-3 text-xs font-bold text-gray-500 md:grid md:grid-cols-7">
-        <div>Id Peminjaman</div>
-        <div>Id Alat</div>
-        <div>Nama Peminjam</div>
-        <div>Kelas</div>
-        <div>Tanggal Pinjam</div>
-        <div>Tanggal Kembali</div>
-        <div>Jumlah</div>
-        <div>Status</div>
-      </div>
+    <div class="mb-6 overflow-x-auto rounded-lg bg-white shadow-sm">
+    <table class="table-alat w-full border-collapse bg-white shadow-sm">
+      <thead class="bg-gray-300 text-xs uppercase font-bold text-gray-700">
+        <>
+          <th class="border border-gray-400 px-4 py-3">id peminjaman</th>
+          <th class="border border-gray-400 px-4 py-3">Id alat</th>
+          <th class="border border-gray-400 px-4 py-3">Nama peminjam</th>
+          <th class="border border-gray-400 px-4 py-3">kelas</th>
+          <th class="border border-gray-400 px-4 py-3">Tanggal Peminjam</th>
+          <th class="border border-gray-400 px-4 py-3">Tanggal Kembali</th>
+          <th class="border border-gray-400 px-4 py-3 text-center">Jumlah</th>
+          <th class="border border-gray-400 px-4 py-3 text-center">Status</th>
+        </tr>
+      </thead>
+<tbody id="peminjaman-list" class="divide-y divide-gray-100">
+<tr>
+<td colspan="4" class="py-4 px-6 text-center text-gray-500">Memuat data
+peminjaman...</td>
+</tr>
+</tbody>
+
     </div>
   </section>
 
+  <script src="js/peminjaman.js"></script>
 </body>
 </html>

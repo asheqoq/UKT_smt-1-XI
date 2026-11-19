@@ -123,7 +123,7 @@ app.patch("/api/kategori_alat/:id", async (req, res)=>{
     }
 });
 // Pengembalian: stok bertambah otomatis oleh trigger
-app.patch('/api/peminjaman/:id/kembali', async (req, res) => {
+app.patch('/api/peminjaman/:id', async (req, res) => {
     try{
         const r = await pool.query(
             `UPDATE peminjaman SET status='Dikembalikan', tanggal_kembali=CURRENT_DATE
