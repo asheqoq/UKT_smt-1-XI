@@ -9,9 +9,10 @@ async function loadKategori() {
             let no = 1;
             result.forEach(kategori => {
                 const row = `
-<tr class="hover:bg-gray-50 transition-colors"> <td class="py-4 px-6 text-gray-900">${kategori.id_kategori}</td> <td class="py-4 px-6 font-medium text-gray-600">${kategori.nama_kategori}</td>
-<td class="py-4 px-6 text-gray-600">${kategori.deskripsi}</td>
-<td class="py-4 px-6 text-gray
+<tr class="hover:bg-gray-50 transition-colors"> 
+    <td class="py-4 px-6 text-gray-900">${kategori.id_kategori}</td> 
+    <td class="py-4 px-6 font-medium text-gray-600">${kategori.nama_kategori}</td>
+    <td class="py-4 px-6 text-gray-600">${kategori.deskripsi}</td>
 </tr>
 `;
                 kategoriList.innerHTML += row;
@@ -19,16 +20,14 @@ async function loadKategori() {
         } else {
             kategoriList.innerHTML = `
 <tr>
-<td colspan="4" class="py-4 px-6 text-center text-gray 500">Belum ada
-alat yang ditambahkan.</td>
+<td colspan="4" class="py-4 px-6 text-center text-gray 500">Belum ada alat yang ditambahkan.</td>
 </tr>
 `;
         }
     } catch (error) {
         console.error('Gagal mengambil data produk:', error);
         document.getElementById('kategori-list').innerHTML = ` <tr>
-<td colspan="4" class="py-4 px-6 text-center text-red 500">Gagal
-memuat data alat. Pastikan server aktif.</td>
+<td colspan="4" class="py-4 px-6 text-center text-red 500">Gagal memuat data alat. Pastikan server aktif.</td>
 </tr>
 `;
     }
