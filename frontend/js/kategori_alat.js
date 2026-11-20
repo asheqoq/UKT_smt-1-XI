@@ -31,7 +31,8 @@ async function loadKategori() {
 </tr>
 `;
     }
-}
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     loadKategori();
 });

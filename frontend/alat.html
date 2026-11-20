@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
-    <link rel="stylesheet" href="dist/output.css">
+    <!-- <link rel="stylesheet" href="dist/output.css"> -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body class="bg-gray-200 text-gray-800 font-sans antialiased">
@@ -24,43 +24,84 @@
     </header>
 
     <section id="alat" class="mb-8 px-4">
-    <div class="mb-4 flex items-center justify-between mt-10">
-      <div>
-        <h2 class="text-xl font-bold">Kelola ALat</h2>
-        <p class="mt-1 text-md text-gray-400">
-          Daftar Alat
-        </p>
+      <div class="mb-4 flex items-center justify-between mt-10">
+        <div>
+          <h2 class="text-xl font-bold">Kelola ALat</h2>
+          <p class="mt-1 text-md text-gray-400">
+            Daftar Alat
+          </p>
+        </div>
+        <a href="#tambah"
+          class="rounded-lg bg-blue-500 px-4 py-2 font-bold text-6 text-white transition duration-300 hover:bg-blue-600">
+          + Tambah Alat
+        </a>
       </div>
-      <button type="button"
-        class="rounded-lg bg-blue-500 px-4 py-2 font-bold text-6 text-white transition duration-300 hover:bg-blue-600">
-        + Tambah Alat
-      </button>
-    </div>
 
-    <div class="mb-10 overflow-x-auto rounded-lg bg-white shadow-sm">
-    <table class="table-alat w-full border-collapse bg-white shadow-sm">
-      <thead class="bg-gray-300 text-xs uppercase font-bold text-gray-700">
-        <tr>
-          <th class="border border-gray-400 px-4 py-3">Id Alat</th>
-          <th class="border border-gray-400 px-4 py-3">Id kategori</th>
-          <th class="border border-gray-400 px-4 py-3">Nama Alat</th>
-          <th class="border border-gray-400 px-4 py-3">Kondisi</th>
-          <th class="border border-gray-400 px-4 py-3">Stok</th>
-          <th class="border border-gray-400 px-4 py-3">Loaksi</th>
-          <th class="border border-gray-400 px-4 py-3 text-center">Aksi</th>
-        </tr>
-      </thead>
+      <div class="mb-10 overflow-x-auto rounded-lg bg-white shadow-sm">
+      <table class="table-alat w-full border-collapse bg-white shadow-sm">
+        <thead class="bg-gray-300 text-xs uppercase font-bold text-gray-700">
+          <tr>
+            <th class="border text-center border-gray-400 px-4 py-3">Id Alat</th>
+            <th class="border text-center border-gray-400 px-4 py-3">Id kategori</th>
+            <th class="border text-center border-gray-400 px-4 py-3">Nama Alat</th>
+            <th class="border text-center border-gray-400 px-4 py-3">Kondisi</th>
+            <th class="border text-center border-gray-400 px-4 py-3">Stok</th>
+            <th class="border text-center border-gray-400 px-4 py-3">Lokasi</th>
+            <th class="border border-gray-400 px-4 py-3 text-center">Aksi</th>
+          </tr>
+        </thead>
 
-      <tbody id="alat-list" class="divide-y divide-gray-100">
-<tr>
-<td colspan="4" class="py-4 px-6 text-center text-gray-500">Memuat data
-produk...</td>
-</tr>
-</tbody>
+        <tbody id="alat-list" class="divide-y divide-gray-100">
+          <tr>
+            <td colspan="4" class="py-4 px-6 text-center text-gray-500">Memuat data produk...</td>
+          </tr>
+        </tbody>
 
-    </table>
-    </div>
-  </section>
+      </table>
+      </div>
+    </section>
+
+    <section id="tambah" class="mb-8 px-4">
+      <div class="mb-5">
+        <h1 class="text-xl font-bold">Tambah Alat</h1>
+      </div>
+
+      <form id="formProduk" class="bg-white rounded-xl shadow-sm p-6 max-w-md mb-6">
+          <div class="mb-4">
+            <label class="block font-semibold text-gray-700 mb-1">Nama Alat</label>
+            <input type="text" id="nama_alat" required
+              class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
+          </div>
+          <div class="mb-4">
+            <label class="block font-semibold text-gray-700 mb-1">Kategori</label>
+            <select name="id_kategori" id="kategori" class="border w-full rounded-lg text-sm font-semibold text-gray-700 p-2">Kategori</select>
+              <option value=""></option>
+          </div>
+          <div class="mb-4">
+            <label class="block font-semibold text-gray-700 mb-1">Kondisi</label>
+            <input type="option" id="kondisi" required
+              class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
+          </div>
+          <div class="mb-5">
+            <label class="block font-semibold text-gray-700 mb-1">Stok</label>
+            <input type="number" id="stok" required
+              class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
+          </div>
+          <div class="mb-5">
+            <label class="block font-semibold text-gray-700 mb-1">Lokasi</label>
+            <input type="text" id="lokasi" required
+              class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
+          </div>
+          <button type="submit"
+            class="text-white bg-sky-700 hover:bg-sky-500 font-bold text-sm px-6 py-2 rounded-lg transition duration-300">
+            Tambah 
+          </button>
+          <button type="reset"
+            class="text-white bg-sky-700 hover:bg-sky-500 font-bold text-sm px-6 py-2 rounded-lg transition duration-300">
+            Reset
+          </button>
+      </form>
+    </section>
   
   <script src="js/alat.js"></script>
 </body>
