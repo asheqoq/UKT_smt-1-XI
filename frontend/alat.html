@@ -1,108 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <!-- <link rel="stylesheet" href="dist/output.css"> -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-</head>
-<body class="bg-gray-200 text-gray-800 font-sans antialiased">
-    <header class="bg-gray-50 shadow-sm sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-    <h1 class="text-2xl font-bold">Sistem Peminjaman Alat</h1>
-    <nav>
-        <ul>
-            <li class="flex gap-6">
-                <a href="alat.html" class="text-black hover:bg-sky-600 bg-gray-200 p-1 rounded-xl transition-all duration-300 font-bold">Alat</a>
-                <a href="kategori_alat.html" class="hover:text-black text-sky-700 hover:bg-sky-600 p-1 rounded-xl transition-all duration-300 font-bold">Kategori</a>
-                <a href="peminjaman.html" class="hover:text-black text-sky-700 hover:bg-sky-600 p-1 rounded-xl transition-all duration-300 font-bold">Peminjaman</a>
-            </li>
-        </ul>
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Manajemen Alat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+
+  <body class="bg-gray-100 p-6">
+    <nav class="mb-6 flex gap-4 bg-white p-4 rounded shadow max-w-5xl mx-auto">
+      <a href="kategori_alat.html" class="text-gray-600 hover:text-blue-600">Kategori</a>
+      <a href="alat.html" class="font-bold text-blue-600">Alat</a>
+      <a href="peminjaman.html" class="text-gray-600 hover:text-blue-600">Peminjaman</a>
     </nav>
-    </div>
-    </header>
 
-    <section id="alat" class="mb-8 px-4">
-      <div class="mb-4 flex items-center justify-between mt-10">
+    <div class="max-w-5xl mx-auto bg-white p-6 rounded shadow">
+      <h2 class="text-xl font-bold mb-4">Form Data Alat</h2>
+      <form id="formAlat" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <input type="hidden" id="id_alat" />
+
         <div>
-          <h2 class="text-xl font-bold">Kelola ALat</h2>
-          <p class="mt-1 text-md text-gray-400">
-            Daftar Alat
-          </p>
+          <label class="block text-sm font-medium mb-1">Nama Alat</label>
+          <input type="text" id="nama_alat" required class="border p-2 rounded w-full"/>
         </div>
-        <a href="#tambah"
-          class="rounded-lg bg-blue-500 px-4 py-2 font-bold text-6 text-white transition duration-300 hover:bg-blue-600">
-          + Tambah Alat
-        </a>
-      </div>
 
-      <div class="mb-10 overflow-x-auto rounded-lg bg-white shadow-sm">
-      <table class="table-alat w-full border-collapse bg-white shadow-sm">
-        <thead class="bg-gray-300 text-xs uppercase font-bold text-gray-700">
-          <tr>
-            <th class="border text-center border-gray-400 px-4 py-3">Id Alat</th>
-            <th class="border text-center border-gray-400 px-4 py-3">Id kategori</th>
-            <th class="border text-center border-gray-400 px-4 py-3">Nama Alat</th>
-            <th class="border text-center border-gray-400 px-4 py-3">Kondisi</th>
-            <th class="border text-center border-gray-400 px-4 py-3">Stok</th>
-            <th class="border text-center border-gray-400 px-4 py-3">Lokasi</th>
-            <th class="border border-gray-400 px-4 py-3 text-center">Aksi</th>
+        <div>
+          <label class="block text-sm font-medium mb-1">Kategori</label>
+          <select id="id_kategori" required class="border p-2 rounded w-full">
+            <option value="">-- Pilih Kategori --</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Kondisi</label>
+          <select id="kondisi" required class="border p-2 rounded w-full">
+            <option value="baik">Baik</option>
+            <option value="kurang baik">Kurang Baik</option>
+            <option value="buruk">Buruk</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Stok</label>
+          <input type="number" id="stok" min="0" required class="border p-2 rounded w-full"/>
+        </div>
+
+        <div class="md:col-span-2 flex gap-2">
+          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">
+            Simpan
+          </button>
+          <button type="button" onclick="resetForm()" class="bg-gray-400 text-white px-4 py-2 rounded">
+            Batal
+          </button>
+        </div>
+      </form>
+
+      <table class="w-full border-collapse border">
+        <thead>
+          <tr class="bg-gray-200">
+            <th class="border p-2">No</th>
+            <th class="border p-2">Nama Alat</th>
+            <th class="border p-2">Kategori</th>
+            <th class="border p-2">Kondisi</th>
+            <th class="border p-2">Stok</th>
+            <th class="border p-2">Aksi</th>
           </tr>
         </thead>
-
-        <tbody id="alat-list" class="divide-y divide-gray-100">
-          <tr>
-            <td colspan="4" class="py-4 px-6 text-center text-gray-500">Memuat data produk...</td>
-          </tr>
-        </tbody>
-
+        <tbody id="tabelAlat"></tbody>
       </table>
-      </div>
-    </section>
-
-    <section id="tambah" class="mb-8 px-4">
-      <div class="mb-5">
-        <h1 class="text-xl font-bold">Tambah Alat</h1>
-      </div>
-
-      <form id="formProduk" class="bg-white rounded-xl shadow-sm p-6 max-w-md mb-6">
-          <div class="mb-4">
-            <label class="block font-semibold text-gray-700 mb-1">Nama Alat</label>
-            <input type="text" id="nama_alat" required
-              class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
-          </div>
-          <div class="mb-4">
-            <label class="block font-semibold text-gray-700 mb-1">Kategori</label>
-            <select name="id_kategori" id="kategori" class="border w-full rounded-lg text-sm font-semibold text-gray-700 p-2">Kategori</select>
-              <option value=""></option>
-          </div>
-          <div class="mb-4">
-            <label class="block font-semibold text-gray-700 mb-1">Kondisi</label>
-            <input type="option" id="kondisi" required
-              class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
-          </div>
-          <div class="mb-5">
-            <label class="block font-semibold text-gray-700 mb-1">Stok</label>
-            <input type="number" id="stok" required
-              class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
-          </div>
-          <div class="mb-5">
-            <label class="block font-semibold text-gray-700 mb-1">Lokasi</label>
-            <input type="text" id="lokasi" required
-              class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm">
-          </div>
-          <button type="submit"
-            class="text-white bg-sky-700 hover:bg-sky-500 font-bold text-sm px-6 py-2 rounded-lg transition duration-300">
-            Tambah 
-          </button>
-          <button type="reset"
-            class="text-white bg-sky-700 hover:bg-sky-500 font-bold text-sm px-6 py-2 rounded-lg transition duration-300">
-            Reset
-          </button>
-      </form>
-    </section>
-  
-  <script src="js/alat.js"></script>
-</body>
+    </div>
+    <script src="js/alat.js"></script>
+  </body>
 </html>

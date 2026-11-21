@@ -1,67 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
-    <!-- <link rel="stylesheet" href="dist/output.css"> -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-</head>
-<body class="bg-gray-200 text-gray-800 font-sans antialiased">
-    <header class="bg-gray-50 shadow-sm sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4">
-    <h1 class="text-2xl font-bold">Sistem Peminjaman ALat</h1>
-    <nav id="navbar">
-        <ul>
-            <li class="flex gap-6">
-                <a href="alat.html" class="hover:text-black text-sky-700 hover:bg-sky-600 p-1 rounded-xl transition-all duration-300 font-bold">Alat</a>
-                <a href="kategori_alat.html" class="hover:text-black text-sky-700 hover:bg-sky-600 p-1 rounded-xl transition-all duration-300 font-bold">Kategori</a>
-                <a href="peminjaman.html" class="text-black hover:bg-sky-600 bg-gray-200 p-1 rounded-xl transition-all duration-300 font-bold">Peminjaman</a>
-            </li>
-        </ul>
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Manajemen Peminjaman</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 p-6">
+    <nav class="mb-6 flex gap-4 bg-white p-4 rounded shadow max-w-5xl mx-auto">
+      <a href="kategori_alat.html" class="text-gray-600 hover:text-blue-600">Kategori</a>
+      <a href="alat.html" class="text-gray-600 hover:text-blue-600">Alat</a>
+      <a href="peminjaman.html" class="font-bold text-blue-600">Peminjaman</a>
     </nav>
+
+    <div class="max-w-5xl mx-auto bg-white p-6 rounded shadow">
+      <h2 class="text-xl font-bold mb-4">Form Peminjaman</h2>
+      <form id="formPeminjaman" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div>
+          <label class="block text-sm font-medium mb-1">Nama Peminjam</label>
+          <input type="text" id="nama_peminjam" required class="border p-2 rounded w-full"/>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Kelas</label>
+          <input type="text" id="kelas" class="border p-2 rounded w-full" />
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Alat</label>
+          <select id="id_alat" required class="border p-2 rounded w-full">
+            <option value="">-- Pilih Alat --</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Jumlah</label>
+          <input type="number" id="jumlah" min="1" value="1" required class="border p-2 rounded w-full"/>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Tanggal Pinjam</label>
+          <input type="date" id="tanggal_pinjam" required class="border p-2 rounded w-full"/>
+        </div>
+
+        <div>
+          <label class="block text-sm font-medium mb-1">Status</label>
+          <select id="status" required class="border p-2 rounded w-full">
+            <option value="Dipinjam">Dipinjam</option>
+            <option value="Dikembalikan">Dikembalikan</option>
+            <option value="Terlambat">Terlambat</option>
+          </select>
+        </div>
+
+        <div class="md:col-span-2">
+          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">
+            Tambah Peminjaman
+          </button>
+        </div>
+      </form>
+
+      <table class="w-full border-collapse border">
+        <thead>
+          <tr class="bg-gray-200">
+            <th class="border p-2">No</th>
+            <th class="border p-2">Peminjam</th>
+            <th class="border p-2">Alat</th>
+            <th class="border p-2">Tanggal</th>
+            <th class="border p-2">Status</th>
+            <th class="border p-2">Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="tabelPeminjaman"></tbody>
+      </table>
     </div>
-    </header>
-
-        <section id="peminjaman" class="mb-8 px-4">
-    <div class="mb-4 flex items-center justify-between mt-10">
-      <div>
-        <h2 class="text-xl font-bold">Kelola Pinjaman</h2>
-        <p class="mt-1 text-md text-gray-400">
-          Daftar Peminjaman
-        </p>
-      </div>
-      <button type="button"
-        class="rounded-lg bg-blue-500 px-4 py-2 font-bold text-6 text-white transition duration-300 hover:bg-blue-600">
-        Pinjam Alat
-      </button>
-    </div>
-
-    <div class="mb-6 overflow-x-auto rounded-lg bg-white shadow-sm">
-    <table class="table-alat w-full border-collapse bg-white shadow-sm">
-      <thead class="bg-gray-300 text-xs uppercase font-bold text-gray-700">
-        <>
-          <th class="border border-gray-400 px-4 py-3">id peminjaman</th>
-          <th class="border border-gray-400 px-4 py-3">Id alat</th>
-          <th class="border border-gray-400 px-4 py-3">Nama peminjam</th>
-          <th class="border border-gray-400 px-4 py-3">kelas</th>
-          <th class="border border-gray-400 px-4 py-3">Tanggal Peminjam</th>
-          <th class="border border-gray-400 px-4 py-3">Tanggal Kembali</th>
-          <th class="border border-gray-400 px-4 py-3 text-center">Jumlah</th>
-          <th class="border border-gray-400 px-4 py-3 text-center">Status</th>
-          <th class="border border-gray-400 px-4 py-3 text-center">Aksi</th>
-        </tr>
-      </thead>
-<tbody id="peminjaman-list" class="divide-y divide-gray-100">
-<tr>
-<td colspan="4" class="py-4 px-6 text-center text-gray-500">Memuat data
-peminjaman...</td>
-</tr>
-</tbody>
-
-    </div>
-  </section>
-
-  <script src="js/peminjaman.js"></script>
-</body>
+    <script src="js/peminjaman.js"></script>
+  </body>
 </html>
